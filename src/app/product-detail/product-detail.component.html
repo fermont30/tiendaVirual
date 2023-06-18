@@ -1,0 +1,26 @@
+<br><br><br><br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-md-4 text-center">
+      <div class="product-card">
+        <div class="card-banner">
+          <figure class="product-banner img-holder" style="--width: 448; --height: 470;">
+            <img [src]="product?.imagen" width="448" height="470" loading="lazy" alt="Short Sleeve Shirt" class="img-cover">
+          </figure>
+        </div>
+        <div class="card-content">
+          <h3 class="h4 title">
+            <h3 class="card-title">{{ product?.titulo }}</h3>
+          </h3>
+          <span class="price">Precio: {{ product?.precio}}</span>
+          <h3 class="h4 title">
+            <h5 class="card-title">{{ product?.descripcion }}</h5>
+          </h3>
+          <div class="text-center"> <!-- Agregar la clase text-center aquí -->
+            <a [routerLink]="'/home'" class="btn btn-outline-primary btn-block">Regresar</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

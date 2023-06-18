@@ -1,0 +1,94 @@
+<!-- #MAIN -->
+  <main>
+    <article>
+      <div class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-subtitle title">$120.00</p>
+            <h1 class="h1 hero-title title">Coleccion de Verano  <br> Hombre  </h1>
+            <p class="hero-text">
+              Esto es el factor que nos diferencia de la competencia y nos permite brindar un servicio comercial especializado
+              <br>
+               el equipo aplica su amplia experiencia para recomendar los mejores articulos.
+            <a href="#" class="btn">
+              <span class="span h4" >Explorar mas</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+          <div class="hero-banner">
+            <figure class="img-holder" style="--width: 704; --height: 700;">
+              <img src="assets/images/hero-banner.png" width="704" height="700" alt="hero banner" class="img-cover">
+            </figure>
+
+            <img src="assets/images/hero-shape-1.png" width="255" height="249" alt="shape" class="shape shape-1">
+          </div>
+
+          <img src="assets/images/hero-shape-2.png" width="360" height="133" alt="shape" class="shape shape-2">
+
+        </div>
+      </div>
+      <!--
+        - #PRODUCT
+      -->
+      <section class="section product" aria-label="product">
+        <div class="container">
+          <div class="row">
+            <!-- Productos Normales -->
+            <ng-container *ngFor="let product of productList; let i=index">
+              <div class="col-md-4" *ngIf="!product.enOferta">
+                <div class="product-card" [ngClass]="{'text-start': !product.enOferta }">
+                  <div class="card-banner">
+                    <figure class="product-banner img-holder" style="--width: 448; --height: 470;">
+                      <img [src]="product.imagen" width="448" height="470" loading="lazy" alt="Short Sleeve Shirt" class="img-cover">
+                    </figure>
+                    <a [routerLink]="'/product/' + product.id" class="btn product-btn">
+                      <ion-icon name="bag" aria-hidden="true"></ion-icon>
+                      <span class="span">Detalles</span>
+                    </a>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="h4 title">
+                      <a [routerLink]="'/product/' + product.id" class="card-title">{{ product.titulo }}</a>
+                    </h3>
+                    <span class="price" [ngStyle]="{'color': product.enOferta ? '#dc3545' : 'black'}">Precio: {{ product.precio - (product.precio * 35 / 100) | currency }}</span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Productos en Oferta -->
+            <div class="container">
+              <h2 class="title card-title text-center text-danger">35% Off</h2>
+               <div class="row">
+                <ng-container *ngFor="let product of productList; let i=index">
+                  <div class="col-md-4" *ngIf="product.enOferta">
+                    <div class="product-card text-center">
+                      <div class="card-banner">
+                        <figure class="product-banner img-holder" style="--width: 448; --height: 470;">
+                          <img [src]="product.imagen" width="448" height="470" loading="lazy" alt="Short Sleeve Shirt" class="img-cover">
+                        </figure>
+                        <a [routerLink]="'/product/' + product.id" class="btn product-btn">
+                          <ion-icon name="bag" aria-hidden="true"></ion-icon>
+                          <span class="span">Detalles</span>
+                        </a>
+                      </div>
+                      <div class="card-content">
+                        <h3 class="h4 title">
+                          <a [routerLink]="'/product/' + product.id" class="card-title">{{ product.titulo }}</a>
+                        </h3>
+                        <span class="price" [ngStyle]="{'color': product.enOferta ? '#dc3545' : 'black'}">Precio: {{ product.precio - (product.precio * 35 / 100) | currency }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+

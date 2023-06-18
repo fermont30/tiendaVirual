@@ -1,0 +1,68 @@
+<br><br><br><br><br><br>
+<div class="top-content">
+  <div class="inner-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5 border border-secondary rounded mt-4" style="background-color: plum;">
+          <div class="form-box">
+            <div class="form-top">
+              <div class="form-top-left">
+                <h3>Login</h3>
+              </div>
+            </div>
+            <div class="form-bottom">
+              <form role="form" action="" method="post" class="login-form" #loginForm="ngForm" (ngSubmit)="login()">
+                <div class="form-group">
+                  <label for="loginUsername">Usuario</label>
+                  <input type="text" class="form-control" id="loginUsername" [(ngModel)]="loginUsername" name="loginUsername" required>
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Contraseña</label>
+                  <input type="password" class="form-control" id="loginPassword" [(ngModel)]="loginPassword" name="loginPassword" required>
+                </div>
+                <button type="submit" class="btn mt-4 mb-4">Iniciar sesión</button>
+              </form>
+              <div class="alert alert-success" *ngIf="loginSuccess" (click)="loginSuccess = false">
+                Inicio de sesión exitoso
+              </div>
+              <div class="alert alert-danger" *ngIf="invalidCredentials" (click)="invalidCredentials = false">
+                Credenciales inválidas
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1 middle-border"></div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5 border border-secondary rounded mt-4" style="background-color: lightblue;">
+          <div class="form-box">
+            <div class="form-top">
+              <div class="form-top-left">
+                <h3>Registro</h3>
+              </div>
+            </div>
+            <div class="form-bottom">
+              <form role="form" action="" method="post" class="registration-form" #registerForm="ngForm" (ngSubmit)="register()">
+                <div class="form-group">
+                  <label for="registerUsername">Usuario</label>
+                  <input type="text" class="form-control" id="registerUsername" [(ngModel)]="registerUsername" name="registerUsername" required>
+                </div>
+                <div class="form-group">
+                  <label for="registerPassword">Contraseña</label>
+                  <input type="password" class="form-control" id="registerPassword" [(ngModel)]="registerPassword" name="registerPassword" required>
+                </div>
+                <button type="submit" class="btn mt-4 mb-4">Registrarse</button>
+              </form>
+              <div class="alert alert-warning" *ngIf="userAlreadyRegistered" (click)="userAlreadyRegistered = false">
+                El usuario ya está registrado
+              </div>
+              <div class="alert alert-success" *ngIf="registrationSuccess" (click)="registrationSuccess = false">
+                Registro exitoso
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
