@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/assets/data/productoInterface';
 import { CartService } from '../services/cart.service';
 
@@ -7,7 +6,7 @@ import { CartService } from '../services/cart.service';
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
 })
-export class CarritoComponent {
+export class CarritoComponent implements OnInit {
   cartItems: Product[] = [];
 
   constructor(private cartService: CartService) {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -7,8 +7,8 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
+
   status = false;
-  searchTerm: string = '';
 
   constructor(public cartService: CartService, private productService: ProductService) {}
 
@@ -16,5 +16,12 @@ export class HeaderComponent {
     this.status = !this.status;
   }
 
- 
+  @Input() pageTitle = '';
+  @Output() titleClickEvent = new EventEmitter<void>();
+
+  onTitleClick() {
+    this.titleClickEvent.emit();
+  }
+
+
 }

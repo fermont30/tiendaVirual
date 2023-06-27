@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { products } from 'src/assets/data/data';
 import { Product } from 'src/assets/data/productoInterface';
 import { ProductService } from '../services/product.service';
@@ -9,10 +9,11 @@ import { CartService } from '../services/cart.service';
   selector: 'app-producto',
   templateUrl: './producto.component.html',
 })
-export class ProductoComponent {
+export class ProductoComponent implements OnInit{
+
   productList: Product[] = products;
   filteredProducts: Product[] = [];
-  searchTerm: string = '';
+  searchTerm = '';
 
   constructor(
     private productService: ProductService,

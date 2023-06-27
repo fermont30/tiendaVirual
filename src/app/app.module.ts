@@ -14,6 +14,14 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { CartService } from './services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { NuevoComponent } from './nuevo/nuevo.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NuevoDetailComponent } from './nuevo-detail/nuevo-detail.component';
+import { TitleCasePipe } from './pipes/title-case.pipe';
+import { DescriptionPipe } from './pipes/description.pipe';
+import { HighlightDirective } from './directives/appHighlight';
+import { ToggleDirective } from './directives/appToggle';
+
 
 @NgModule({
   declarations: [
@@ -25,12 +33,20 @@ import { LoginComponent } from './login/login.component';
     ProductDetailComponent,
     CarritoComponent,
     LoginComponent,
+    NuevoComponent,
+    NuevoDetailComponent,
+    TitleCasePipe,
+    DescriptionPipe,
+    HighlightDirective,
+    ToggleDirective
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    HttpClientModule
   ],
   providers: [ProductService, CartService],
   bootstrap: [AppComponent]

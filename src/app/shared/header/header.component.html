@@ -3,6 +3,7 @@
     <a href="#" class="logo">
       <img src="assets/images/logo.svg" width="132" height="27" alt="shoppie home">
     </a>
+    <button><h3 (click)="onTitleClick()" appHighlight>{{pageTitle}}</h3></button>
     <nav class="navbar" data-navbar [ngClass]="status ? 'active' : ''">
       <ul class="navbar-list">
         <li>
@@ -12,7 +13,7 @@
           <a routerLink="/productos" class="navbar-link">Tienda</a>
         </li>
         <li>
-          <a href="login" class="navbar-link">Login</a>
+          <a routerLink="/login" class="navbar-link">Login</a>
         </li>
       </ul>
       <button  routerLink="/carrito"class="cart-btn">

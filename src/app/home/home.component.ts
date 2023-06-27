@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/assets/data/productoInterface';
 import { ProductService } from '../services/product.service';
@@ -7,7 +7,7 @@ import { ProductService } from '../services/product.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   productList: Product[] = [];
 

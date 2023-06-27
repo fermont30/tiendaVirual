@@ -6,6 +6,7 @@ import { Product } from 'src/assets/data/productoInterface';
   providedIn: 'root'
 })
 export class ProductService {
+
   productList: Product[] = [];
   filteredProducts: Product[] = [];
 
@@ -30,4 +31,5 @@ export class ProductService {
   getProductById(id: number) {
     return this.productList.find(product => product.id === id);
   }
+  
 }

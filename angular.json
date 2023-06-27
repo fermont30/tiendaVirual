@@ -158,11 +158,23 @@
               "browserTarget": "tiendaVirtual:build:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "964fe3d6-41f2-43be-b064-97497cd35909"
+    "analytics": "964fe3d6-41f2-43be-b064-97497cd35909",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

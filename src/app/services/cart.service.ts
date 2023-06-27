@@ -7,8 +7,6 @@ import { Product } from 'src/assets/data/productoInterface';
 export class CartService {
   cartItems: Product[] = [];
 
-  constructor() { }
-
   addToCart(product: Product) {
     this.cartItems.push(product);
   }

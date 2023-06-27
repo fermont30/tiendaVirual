@@ -11,6 +11,9 @@ export class ProductDetailComponent implements OnInit {
 
   product: Product | undefined;
   id!: number;
+  message ='';
+  expandDescription = false;
+
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {}
 
@@ -21,4 +24,9 @@ export class ProductDetailComponent implements OnInit {
       window.scrollTo(0, 0);
     });
   }
+
+  receiveMessage(message: string) {
+    this.message = message;
+  }
+
 }

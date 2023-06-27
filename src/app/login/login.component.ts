@@ -1,28 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { User } from 'src/assets/data/userInterface';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
 })
-export class LoginComponent {
+export class LoginComponent implements  OnDestroy {
 
   users: User[] = [];
-  // Propiedades para el inicio de sesión
-  public loginUsername: string = '';
-  public loginPassword: string = '';
+  loginUsername = '';
+  loginPassword = '';
+  registerUsername = '';
+  registerPassword = '';
 
-  // Propiedades para el registro de usuarios
-  public registerUsername: string = '';
-  public registerPassword: string = '';
+  loginSuccess = false;
+  invalidCredentials = false;
+  userAlreadyRegistered = false;
+  registrationSuccess = false;
 
-  loginSuccess: boolean = false;
-  invalidCredentials: boolean = false;
-  userAlreadyRegistered: boolean = false;
-  registrationSuccess: boolean = false;
+  ngOnDestroy(): void {
+    this.displayMessage('Estas Seguro de no iniciar Sesion');
+  }
 
-  login() {
-    // Busca si existe un usuario con las credenciales ingresadas
+  displayMessage(message: string): void {
+    alert(message);
+  }
+
+  login(): void {
     const user = this.users.find(u => u.username === this.loginUsername && u.password === this.loginPassword);
     if (user) {
       this.loginSuccess = true;
@@ -31,8 +35,7 @@ export class LoginComponent {
     }
   }
 
-  register() {
-    // Verifica si el usuario ya está registrado
+  register(): void {
     const existingUser = this.users.find(u => u.username === this.registerUsername);
     if (existingUser) {
       this.userAlreadyRegistered = true;
@@ -44,11 +47,10 @@ export class LoginComponent {
     }
   }
 
-  closeAlerts() {
+  closeAlerts(): void {
     this.loginSuccess = false;
     this.invalidCredentials = false;
     this.userAlreadyRegistered = false;
     this.registrationSuccess = false;
   }
-
 }
