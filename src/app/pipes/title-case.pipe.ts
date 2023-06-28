@@ -9,7 +9,6 @@ export class TitleCasePipe implements PipeTransform {
       return '';
     }
 
-
     const words = value.split(' ');
 
     const capitalizedWords = words.map(word => this.capitalize(word));

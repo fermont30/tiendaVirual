@@ -1,13 +1,13 @@
 <header class="header" data-header>
   <div class="container">
-    <a href="#" class="logo">
+    <a routerLink="/home" class="logo">
       <img src="assets/images/logo.svg" width="132" height="27" alt="shoppie home">
     </a>
     <button><h3 (click)="onTitleClick()" appHighlight>{{pageTitle}}</h3></button>
     <nav class="navbar" data-navbar [ngClass]="status ? 'active' : ''">
       <ul class="navbar-list">
         <li>
-          <a href="#" class="navbar-link">Home</a>
+          <a routerLink="/home" class="navbar-link">Home</a>
         </li>
         <li>
           <a routerLink="/productos" class="navbar-link">Tienda</a>
@@ -26,4 +26,67 @@
       <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
     </button>
   </div>
+  <button class="sidebar-toggle-btn" aria-label="toggle sidebar" (click)="toggleSidebar()">
+    <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+  </button>
 </header>
+
+<aside class="sidebar" [ngClass]="sidebarOpen ? 'open' : ''">
+  <div id="mySidenav" class="sidenav">
+    <span class="closebtn" (click)="toggleSidebar()">&times;</span>
+    <div class="menu_items">
+      <a routerLink="/home" class="logo">
+        <img src="assets/images/logo.svg" width="132" height="27" alt="shoppie home">
+      </a>
+      <a routerLink="/productos">Tienda</a>
+      <a routerLink="/login">Login</a>
+    </div>
+  </div>
+</aside>
+
+<style>
+  /* Estilos para el sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  z-index: 9999;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidenav {
+  width: 250px;
+  height: 100%;
+  background-color: #f1f1f1;
+  padding-top: 60px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Estilos para el ícono del botón de despliegue del sidebar */
+.sidebar-toggle-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none ;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar-toggle-btn ion-icon {
+  font-size: 24px;
+}
+</style>

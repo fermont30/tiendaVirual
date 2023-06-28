@@ -11,7 +11,6 @@ export class NuevoDetailComponent implements OnInit {
 
   product: Nuevo | undefined;
   id!: number;
-  message = '';
   expandDescription = false;
 
   constructor(private route: ActivatedRoute, private productService: NuevoService) {}
@@ -26,7 +25,5 @@ export class NuevoDetailComponent implements OnInit {
     });
   }
 
-  receiveMessage(message: string) {
-    this.message = message;
-  }
+
 }

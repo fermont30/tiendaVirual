@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class HeaderComponent {
 
   status = false;
+  sidebarOpen = false;
 
   constructor(public cartService: CartService, private productService: ProductService) {}
 
@@ -21,6 +22,10 @@ export class HeaderComponent {
 
   onTitleClick() {
     this.titleClickEvent.emit();
+  }
+
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
   }
 
 
